@@ -1,15 +1,62 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+//        **************** ES1 *******************
+//        int[] arrOfNumbs = new int[5];
+//
+//        for (int i = 0; i < arrOfNumbs.length; i++) {
+//            arrOfNumbs[i] = (int) (Math.random() * 10);
+//
+//        }
+//        System.out.println(Arrays.toString(arrOfNumbs));
+//
+//        Scanner scanner = new Scanner(System.in);
+//        int index = -1;
+//        do {
+//            System.out.println("scegli un numero da inserire nell'array");
+//            int integerNum = Integer.parseInt(scanner.nextLine());
+//            if (integerNum != 0) {
+//                System.out.println("scegli prima un indice da 1 a 5 ");
+//                index = Integer.parseInt(scanner.nextLine());
+//                try {
+//                    arrOfNumbs[index - 1] = integerNum;
+//                    System.out.println(Arrays.toString(arrOfNumbs));
+//} catch (ArrayIndexOutOfBoundsException e) {
+//        System.err.println("indice non valido");
+//                }
+//                        } else {
+//index = 0;
+//        }
+//
+//
+//        } while (index != 0);
+//
+//        scanner.close();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+
+//        ************** ES2 *******************
+
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.println("inserisci i kilometri percorsi");
+            double km = Double.parseDouble(scanner.nextLine());
+            System.out.println("inserisci i litri consumati");
+            double litri = Double.parseDouble(scanner.nextLine());
+            double kmXLitri = km / litri;
+            if (km == 0 || litri == 0) {
+                throw new ArithmeticException("non puoi dividere per 0");
+            } else System.out.println(kmXLitri);
+
+        } catch (ArithmeticException e) {
+            System.err.println(e.getMessage());
+
+        } catch (InputMismatchException e) {
+            System.err.println("non hai inserito un numero");
+
+        } finally {
+            scanner.close();
         }
     }
 }
