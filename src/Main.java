@@ -1,8 +1,9 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+//        **************** ES0 *******************
+
 //        **************** ES1 *******************
 //        int[] arrOfNumbs = new int[5];
 //
@@ -15,7 +16,7 @@ public class Main {
 //        Scanner scanner = new Scanner(System.in);
 //        int index = -1;
 //        do {
-//            System.out.println("scegli un numero da inserire nell'array");
+//            System.out.println("scegli un numero da inserire nell'array che non sia 0");
 //            int integerNum = Integer.parseInt(scanner.nextLine());
 //            if (integerNum != 0) {
 //                System.out.println("scegli prima un indice da 1 a 5 ");
@@ -45,14 +46,14 @@ public class Main {
             System.out.println("inserisci i litri consumati");
             double litri = Double.parseDouble(scanner.nextLine());
             double kmXLitri = km / litri;
-            if (km == 0 || litri == 0) {
+            if (litri == 0) {
                 throw new ArithmeticException("non puoi dividere per 0");
             } else System.out.println(kmXLitri);
 
         } catch (ArithmeticException e) {
             System.err.println(e.getMessage());
 
-        } catch (InputMismatchException e) {
+        } catch (NumberFormatException e) {
             System.err.println("non hai inserito un numero");
 
         } finally {
